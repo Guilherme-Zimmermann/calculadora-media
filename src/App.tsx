@@ -9,6 +9,21 @@ function App() {
   const [res, setRes] = useState('');
 
   function calcular() {
+    if (!av1 || !av2) {
+      alert('Preencha os campos corretamente');
+      return;
+    }
+
+    if (parseFloat(av1) > 10 || parseFloat(av2) > 10) {
+      alert('Digite um valor válido');
+      return;
+    }
+
+    if (parseFloat(av1) < 0 || parseFloat(av2) < 0) {
+      alert('Digite um valor válido');
+      return;
+    }
+
     const media = (parseFloat(av1) + parseFloat(av2)) / 2;
     setRes(media.toFixed(2));
   }
@@ -40,7 +55,7 @@ function App() {
           <Button label={"Limpar"} onClick={limpar} />
         </div>
         {
-          res && <div className="res">Resultado: {res}</div>
+          res && <div className="res  ">Resultado: {res}</div>
         }
       </div>
     </>
